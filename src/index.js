@@ -2,6 +2,7 @@ const express = require('express');
 const { Pool } = require('pg');
 require('dotenv').config();
 
+const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -14,6 +15,7 @@ const pool = new Pool({
 });
 
 app.use(express.json());
+app.use(cors());
 
 // ✅ Rota de teste
 app.get('/', (req, res) => {
